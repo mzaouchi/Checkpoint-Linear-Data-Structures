@@ -1,0 +1,25 @@
+ALGORITHM ClassicsumCountCommon
+VAR
+    set1 : ARRAY_OF INTEGER[3, 1, 7, 9];
+    set2 : ARRAY_OF INTEGER[2, 4, 1, 9, 3];
+    exist : BOOLEAN;
+    sum,i,j : INTEGER;
+BEGIN
+    sum := 0;
+
+    FOR i FROM 0 TO set1.length-1 STEP 1  DO
+        exist := FALSE;
+        FOR j FROM 0 TO set2.length-1 STEP 1  DO
+            IF (set1[i] = set2[j]) THEN
+                exist := TRUE;
+            END_IF
+        END_FOR
+
+        IF (exist = TRUE) THEN
+            sum := sum + set1[i]*2;
+        END_IF
+    END_FOR
+
+     Write(sum);
+    
+END
